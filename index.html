@@ -10,6 +10,83 @@
     <script src="./scripts/script.js" defer></script>
   </head>
   <body>
-      
+    <!-- ======== HEADER ======== -->
+    <header class="header_main">
+      <h1 class="header_title">ROCK PAPER SCISSORS</h1>
+    </header>
+
+    <!-- ======== MAIN CONTENT ======== -->
+    <main>
+
+      <!-- Game display -->
+      <article class="game_main">
+        
+        <!-- P1 display -->
+        <div class="game_p1_container">
+          <h2 class="p1_name">YOU</h2>
+          <img src="./images/paper.png" alt="paper" srcset="" class="p_move">
+        </div>
+
+        <!-- Score display -->
+        <div class="game_score_container">
+          <h2 class="score_display">
+            <span class="p1_score">0</span> : <span class="p2_score">0</span>
+          </h2>
+          <h2>VS</h2>
+        </div>
+
+        <!-- P2 display -->
+        <div class="game_p2_container">
+          <h2 class="p2_name">YOU</h2>
+          <img src="./images/scissors.png" alt="scissors" srcset="" class="p_move">
+        </div>
+      </article>
+
+      <!-- Log display -->
+      <article class="log_main">
+        
+        <!-- Player names -->
+        <div class="log_header">
+          <h3 class="p1_name">YOU</h3>
+          <h3 class="p2_name">COMPUTER</h3>
+        </div>
+
+        <!-- Log -->
+        <ul class="log_wrapper">
+          <li class="log">
+            <img src="./images/paper.png" alt="paper" srcset="" class="p_move">
+            <h3>VS</h3>
+            <img src="./images/scissors.png" alt="scissors" srcset="" class="p_move">
+          </li>
+        </ul>
+      </article>
+    </main>
+    
+    
+    <!-- ======== FOOTER ======== -->
+    <footer class="footer_main">
+      <!-- Main footer container -->
+      <div class="footer_container">
+        <!-- Container with author -->
+        <div class="hands_container">
+          <!-- Buttons container -->
+          <div class="rps_container">
+            <button class="btn hand_btn">
+              <img src="./images/rock.png" alt="rock" srcset="" />
+            </button>
+            <button class="btn hand_btn">
+              <img src="./images/paper.png" alt="paper" srcset="" />
+            </button>
+            <button class="btn hand_btn">
+              <img src="./images/scissors.png" alt="scissors" srcset="" />
+            </button>
+          </div>
+          <a href="https://dribbble.com/shots/2403290-Rock-Paper-Scissors" class="hands_author">hands by Osman Ince</a>
+        </div>
+
+        <!-- Round display -->
+        <h1 class="footer_title">ROUND <span class="round_number">0</span></h1>
+      </div>
+    </footer>
   </body>
 </html>

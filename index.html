@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
-    <!-- <link rel="stylesheet" href="./styles/reset.css" /> -->
+    <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/styles.css" />
-    <script src="./scripts/script.js" defer></script>
+    <!-- <script src="./scripts/script.js" defer></script> -->
   </head>
   <body>
     <!-- ======== HEADER ======== -->
@@ -22,8 +22,8 @@
       <article class="game_main">
         
         <!-- P1 display -->
-        <div class="game_p1_container">
-          <h2 class="p1_name">YOU</h2>
+        <div class="game_p_container left">
+          <h2 class="p1_name">NICOLAS</h2>
           <img src="./images/paper.png" alt="paper" srcset="" class="p_move">
         </div>
 
@@ -36,8 +36,8 @@
         </div>
 
         <!-- P2 display -->
-        <div class="game_p2_container">
-          <h2 class="p2_name">YOU</h2>
+        <div class="game_p_container right">
+          <h2 class="p2_name">COMPUTER</h2>
           <img src="./images/scissors.png" alt="scissors" srcset="" class="p_move">
         </div>
       </article>
@@ -47,12 +47,27 @@
         
         <!-- Player names -->
         <div class="log_header">
-          <h3 class="p1_name">YOU</h3>
+          <h3 class="p1_name">NICOLAS</h3>
           <h3 class="p2_name">COMPUTER</h3>
         </div>
 
         <!-- Log -->
         <ul class="log_wrapper">
+          <li class="log">
+            <img src="./images/paper.png" alt="paper" srcset="" class="p_move">
+            <h3>VS</h3>
+            <img src="./images/scissors.png" alt="scissors" srcset="" class="p_move">
+          </li>
+          <li class="log">
+            <img src="./images/paper.png" alt="paper" srcset="" class="p_move">
+            <h3>VS</h3>
+            <img src="./images/scissors.png" alt="scissors" srcset="" class="p_move">
+          </li>
+          <li class="log">
+            <img src="./images/paper.png" alt="paper" srcset="" class="p_move">
+            <h3>VS</h3>
+            <img src="./images/scissors.png" alt="scissors" srcset="" class="p_move">
+          </li>
           <li class="log">
             <img src="./images/paper.png" alt="paper" srcset="" class="p_move">
             <h3>VS</h3>
@@ -85,7 +100,7 @@
         </div>
 
         <!-- Round display -->
-        <h1 class="footer_title">ROUND <span class="round_number">0</span></h1>
+        <h1 class="footer_title">ROUND <span class="round_number">10</span></h1>
       </div>
     </footer>
   </body>

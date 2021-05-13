@@ -62,7 +62,7 @@ h2 {
 
 /*
 ===================
-Layout
+Layout (Mobile)
 ===================
 */
 
@@ -187,6 +187,54 @@ main {
     font-size: 3.5rem;
     margin-top: .5em;
     margin: .5em .3em 0 0;
+}
+
+@media (min-width: 768px){
+    /* ========= Global ========= */
+    h2 {
+        font-size: 3rem;
+    }
+
+    /* ========= Header ========= */
+    .header_main {
+        top: -110px;
+    }
+    .header_title {
+        font-size: 6.2rem;
+        top: 122px;
+        left: -15px;
+    }
+
+    /* ========= Main ========= */
+    main {
+        flex-direction: row;
+    }
+    .game_main {
+        width: 70%;
+    }
+    .p_move {
+        width: 80px;
+    }
+
+    /* ========= Log ========= */
+    .log_main {
+        width: 315px;
+        height: 355px;
+        font-size: 1.5rem;
+        margin-left: 3em;
+    }
+
+
+    /* ========= Footer ========= */
+    .footer_main {
+        bottom: -110px;
+    }
+    .footer_title {
+        font-size: 6.5rem;
+    }
+    .hand_btn {
+        width: 80px;
+    }
 }
 
 

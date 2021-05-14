@@ -1,3 +1,15 @@
+//============== Selectors ==============
+
+//Game display 
+const moves = document.querySelectorAll(".p_move");
+const p1ScoreDisplay = document.querySelector(".p1_score")
+const p2ScoreDisplay = document.querySelector(".p2_score")
+
+//Footer
+const handBtns = document.querySelectorAll(".hand_btn");
+const roundNum = document.querySelector(".round_number");
+
+
 //1.Make two objects refering player and computer
 //--a.Keep track of the score
 //--b.Function to make a move

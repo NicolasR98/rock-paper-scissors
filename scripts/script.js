@@ -13,6 +13,7 @@ const logWrapper = document.querySelector(".log_wrapper");
 //Footer
 const handBtns = document.querySelectorAll(".hand_btn");
 const roundDisplay = document.querySelector(".round_number");
+const restartBtn = document.querySelector(".btn_restart");
 
 //============== Global values ==============
 
@@ -174,8 +175,12 @@ const restartGame = (p1, p2) => {
   resetLog();
   resetRounds();
   resetSelections();
-  disableSelections(false)
+  disableSelections(false);
 };
+
+restartBtn.addEventListener("click", () => {
+  restartGame(P1, P2);
+});
 
 const playGame = (scoreToWin) => {
   handBtns.forEach((btn) => {

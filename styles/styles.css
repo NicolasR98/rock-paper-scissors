@@ -56,6 +56,10 @@ body {
 img {
     max-width: 100%;
 }
+button {
+    color: #FFF;
+    font-family: 'Bebas Neue', cursive;
+}
 h2 {
     font-size: 2.5rem;
 }
@@ -199,6 +203,15 @@ main {
     font-size: 3.5rem;
     margin-top: .5em;
     margin: .5em .3em 0 0;
+}
+.btn_restart {
+    border: 1px solid var(--white);
+    padding: .2em .5em;
+    transition: all .5s ease;
+}
+.btn_restart:hover{
+    background-color: var(--white);
+    color: var(--black);
 }
 
 @media (min-width: 768px){

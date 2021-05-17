@@ -214,7 +214,23 @@ main {
     color: var(--black);
 }
 
-@media (min-width: 768px){
+@media (orientation:landscape){
+    main {
+        flex-direction: row;
+    }
+    .header_main {
+        top: -235px;
+    }
+    .game_main {
+        height: 45%;
+    }
+    .footer_main{
+        bottom: -185px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 900px){
     /* ========= Global ========= */
     h2 {
         font-size: 3rem;
@@ -222,7 +238,7 @@ main {
 
     /* ========= Header ========= */
     .header_main {
-        top: -110px;
+        top: -180px;
     }
     .header_title {
         font-size: 6.2rem;
@@ -252,7 +268,11 @@ main {
 
     /* ========= Footer ========= */
     .footer_main {
-        bottom: -110px;
+        bottom: -130px;
+    }
+    .footer_container{
+        position: relative;
+        bottom: 15px;
     }
     .footer_title {
         font-size: 6.5rem;
@@ -261,6 +281,7 @@ main {
         width: 80px;
     }
 }
+
 
 
 

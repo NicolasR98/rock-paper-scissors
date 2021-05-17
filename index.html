@@ -21,8 +21,8 @@
       <article class="game_main">
         <!-- P1 display -->
         <div class="game_p_container left">
-          <h2 class="p1_name">NICOLAS</h2>
-          <img src="./images/paper.png" alt="paper" srcset="" class="p_move" />
+          <h2 class="p1_name">YOU</h2>
+          <img src="" alt="" srcset="" class="p_move" />
         </div>
 
         <!-- Score display -->
@@ -37,8 +37,8 @@
         <div class="game_p_container right">
           <h2 class="p2_name">COMPUTER</h2>
           <img
-            src="./images/scissors.png"
-            alt="scissors"
+            src=""
+            alt=""
             srcset=""
             class="p_move"
           />
@@ -49,72 +49,12 @@
       <article class="log_main">
         <!-- Player names -->
         <div class="log_header">
-          <h3 class="p1_name">NICOLAS</h3>
+          <h3 class="p1_name">YOU</h3>
           <h3 class="p2_name">COMPUTER</h3>
         </div>
 
         <!-- Log -->
         <ul class="log_wrapper">
-          <li class="log">
-            <img
-              src="./images/paper.png"
-              alt="paper"
-              srcset=""
-              class="p_move"
-            />
-            <h3>VS</h3>
-            <img
-              src="./images/scissors.png"
-              alt="scissors"
-              srcset=""
-              class="p_move"
-            />
-          </li>
-          <li class="log">
-            <img
-              src="./images/paper.png"
-              alt="paper"
-              srcset=""
-              class="p_move"
-            />
-            <h3>VS</h3>
-            <img
-              src="./images/scissors.png"
-              alt="scissors"
-              srcset=""
-              class="p_move"
-            />
-          </li>
-          <li class="log">
-            <img
-              src="./images/paper.png"
-              alt="paper"
-              srcset=""
-              class="p_move"
-            />
-            <h3>VS</h3>
-            <img
-              src="./images/scissors.png"
-              alt="scissors"
-              srcset=""
-              class="p_move"
-            />
-          </li>
-          <li class="log">
-            <img
-              src="./images/paper.png"
-              alt="paper"
-              srcset=""
-              class="p_move"
-            />
-            <h3>VS</h3>
-            <img
-              src="./images/scissors.png"
-              alt="scissors"
-              srcset=""
-              class="p_move"
-            />
-          </li>
         </ul>
       </article>
     </main>
@@ -127,13 +67,13 @@
         <div class="hands_container">
           <!-- Buttons container -->
           <div class="rps_container">
-            <button class="btn hand_btn">
+            <button data-selection="rock" class="btn hand_btn">
               <img src="./images/rock.png" alt="rock" srcset="" />
             </button>
-            <button class="btn hand_btn">
+            <button data-selection="paper" class="btn hand_btn">
               <img src="./images/paper.png" alt="paper" srcset="" />
             </button>
-            <button class="btn hand_btn">
+            <button data-selection="scissors" class="btn hand_btn">
               <img src="./images/scissors.png" alt="scissors" srcset="" />
             </button>
           </div>
@@ -146,7 +86,7 @@
         </div>
 
         <!-- Round display -->
-        <h1 class="footer_title">ROUND <span class="round_number">10</span></h1>
+        <h1 class="footer_title">ROUND <span class="round_number">0</span></h1>
       </div>
     </footer>
   </body>

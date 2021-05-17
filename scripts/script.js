@@ -1,37 +1,59 @@
 //============== Selectors ==============
 
-//Game display 
-const moves = document.querySelectorAll(".p_move");
-const p1ScoreDisplay = document.querySelector(".p1_score")
-const p2ScoreDisplay = document.querySelector(".p2_score")
+//Game display
+const imgSelections = document.querySelectorAll(".p_move");
+const p1ScoreDisplay = document.querySelector(".p1_score");
+const p2ScoreDisplay = document.querySelector(".p2_score");
+const p1Name = document.querySelectorAll(".p1_name");
+const p2Name = document.querySelectorAll(".p2_name");
+
+//Log
+const logWrapper = document.querySelector(".log_wrapper");
 
 //Footer
 const handBtns = document.querySelectorAll(".hand_btn");
-const roundNum = document.querySelector(".round_number");
+const roundDisplay = document.querySelector(".round_number");
 
+//============== Global values ==============
 
-//1.Make two objects refering player and computer
-//--a.Keep track of the score
-//--b.Function to make a move
-//--c.Function to reset their scores
-//--d.Name of each one
+//Rock, paper, scissors object
+const RPS = [
+  {
+    name: "rock",
+    beats: "scissors",
+    img: "./images/rock.png",
+  },
+  {
+    name: "paper",
+    beats: "rock",
+    img: "./images/paper.png",
+  },
+  {
+    name: "scissors",
+    beats: "paper",
+    img: "./images/scissors.png",
+  },
+];
 
-const Player = {
+//Round Number
+let round = 0;
+
+//P1 Object
+const P1 = {
   name: "Player",
   score: 0,
-  makeMove() {
-    let index = parseInt(prompt("1.Rock/2.Paper/3.Scissors"));
-    return RPS[index - 1];
-  },
   incrementScore() {
-    return this.score++;
+    this.score++;
+    p1ScoreDisplay.textContent = this.score;
   },
   resetScore() {
-    return (this.score = 0);
+    this.score = 0;
+    p1ScoreDisplay.textContent = this.score;
   },
 };
 
-const Computer = {
+//P2 Object (Computer)
+const P2 = {
   name: "Computer",
   score: 0,
   makeMove() {
@@ -41,84 +63,135 @@ const Computer = {
   },
   incrementScore() {
     this.score++;
+    p2ScoreDisplay.textContent = this.score;
   },
   resetScore() {
     this.score = 0;
+    p2ScoreDisplay.textContent = this.score;
   },
 };
 
-//2.Make an array with RPS(rock,paper,scissors) objects with the next properties
-//--a. name = 'rock',
-//--a. beats = 'scissors' (The rock beats the scissors)
+//============== Functions ==============
 
-const RPS = [
-  {
-    name: "rock",
-    beats: "scissors",
-  },
-  {
-    name: "paper",
-    beats: "rock",
-  },
-  {
-    name: "scissors",
-    beats: "paper",
-  },
-];
+const displayNames = (nameP1, nameP2) => {
+  p1Name.forEach((name) => (name.textContent = nameP1));
+  p2Name.forEach((name) => (name.textContent = nameP2));
+};
+displayNames(P1.name, P2.name);
 
-//3.Make a function to start a round between the player and the computer
-//--a.Compare their moves (rock vs scissors)
-//--b.Define the winner of the round.
-//--c.Increment the score of the winner
+const countRounds = () => {
+  round++;
+  roundDisplay.textContent = round;
+};
+const resetRounds = () => {
+  round = 0;
+  roundDisplay.textContent = round;
+};
 
-function playRound(player, oponent) {
-  //Start the moves
-  let playerMove = player.makeMove();
-  let oponentMove = oponent.makeMove();
+const displayLog = () => {
+  //Create elements
+  const li = document.createElement("li");
+  const imgSelectionP1 = document.createElement("img");
+  const imgSelectionP2 = document.createElement("img");
+  const h3 = document.createElement("h3");
 
-  if (playerMove.beats === oponentMove.name) {
-    Player.incrementScore();
-    return console.log(
-      `Player with ${playerMove.name} beats Computer ${oponentMove.name}`
-    );
-  }
-  if (oponentMove.beats === playerMove.name) {
-    Computer.incrementScore();
-    return console.log(
-      `Computer with ${oponentMove.name} beats Player ${playerMove.name}`
-    );
-  }
+  //Add respective classes to created elements
+  li.classList.add("log");
+  imgSelectionP1.classList.add("p_move");
+  imgSelectionP2.classList.add("p_move");
 
-  return console.log(
-    `is a tie! player: ${playerMove.name} / computer: ${oponentMove.name}`
-  );
-}
+  //Assign the players selection img to the log
+  imgSelectionP1.src = imgSelections[0].src;
+  imgSelectionP2.src = imgSelections[1].src;
 
-//4.Make a function to check the player and computer scores to define who is the winner or if is a tie
-function checkWinner(player, oponent) {
-  if (player.score === oponent.score) {
-    return `is a tie! ${player.name} ${player.score} : ${oponent.name} ${oponent.score}`;
-  }
+  h3.textContent = "VS";
 
-  if (player.score > oponent.score) {
-    return `${player.name} won the game! - ${player.score} : ${oponent.score}`;
+  //Append all to the li
+  li.append(imgSelectionP1, h3, imgSelectionP2);
+  //Append the li to the ul (logWrapper)
+  logWrapper.append(li);
+};
+
+const resetLog = () => (logWrapper.innerHTML = "");
+
+const playRound = (p1, p2) => {
+  //Start round when players make their selections
+  let p1Selection = RPS.find((selection) => p1.move === selection.name);
+  let p2Selection = p2.makeMove();
+
+  //Display the players selections in the game display
+  imgSelections[0].src = p1Selection.img;
+  imgSelections[1].src = p2Selection.img;
+
+  //Round logic
+  /*
+    1.If they make the same selection, nothing happens
+    2.If P1 selection beats P2 selecion, increment score to P1
+    3.Else increment score to P2
+  */
+
+  p1Selection.name === p2Selection.name
+    ? ""
+    : p1Selection.beats === p2Selection.name
+    ? p1.incrementScore()
+    : p2.incrementScore();
+};
+
+const disableSelections = (bool) => {
+  //If true disable buttons
+  if (bool) {
+    handBtns.forEach((btn) => {
+      btn.classList.add("disabled");
+      btn.disabled = true;
+    });
+
+    //Else remove disable state
   } else {
-    return `${oponent.name} won the game! - ${oponent.score} : ${player.score}`;
+    handBtns.forEach((btn) => {
+      btn.classList.remove("disabled");
+      btn.disabled = false;
+    });
   }
-}
+};
 
-//5.Make a function to start a game with several rounds, keep track of the scores and define the winner
-//--a.Has a param that defines the number of rounds
-//--b.Keep the track of the scores and displays them
-//--c.Displays the winner of the game
-//--d.Resets the stats
-function startGame(rounds) {
-  let round = 0;
-  while (round < rounds) {
-    playRound(Player, Computer);
-    round++;
+const resetSelections = () => {
+  imgSelections[0].src = "";
+  imgSelections[1].src = "";
+};
+
+const gameOver = (p1, p2) => {
+  disableSelections(true);
+  if (p1.score > p2.score) {
+    console.log(`${p1.name} won the game!`);
+  } else {
+    console.log(`${p2.name} won the game!`);
   }
-  console.log(checkWinner(Player, Computer));
-}
+};
 
-startGame(5);
+const restartGame = (p1, p2) => {
+  p1.resetScore();
+  p2.resetScore();
+  resetLog();
+  resetRounds();
+  resetSelections();
+  disableSelections(false)
+};
+
+const playGame = (scoreToWin) => {
+  handBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      let selection = btn.dataset.selection;
+      P1.move = selection;
+
+      playRound(P1, P2);
+      countRounds();
+      displayLog();
+
+      if (P1.score >= scoreToWin || P2.score >= scoreToWin) {
+        gameOver(P1, P2);
+      }
+    });
+  });
+};
+
+playGame(5);

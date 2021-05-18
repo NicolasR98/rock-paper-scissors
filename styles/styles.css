@@ -196,6 +196,10 @@ main {
 }
 .hand_btn {
     width: 55px;
+    transition: all .2s ease;
+}
+.hand_btn:hover {
+    transform: scale(1.2);
 }
 .footer_title {
     color: var(--white);
@@ -208,6 +212,8 @@ main {
     border: 1px solid var(--white);
     padding: .2em .5em;
     transition: all .5s ease;
+    margin-top: -1em;
+    font-size: 1.1rem;
 }
 .btn_restart:hover{
     background-color: var(--white);
